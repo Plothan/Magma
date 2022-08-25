@@ -1,6 +1,6 @@
 <img src = "./gh-assets/banner-dark.svg#gh-light-mode-only"><img src = "./gh-assets/banner-white.svg">
 
-Magma is a modern, reactive state management built for [Roblox](https://developer.roblox.com/en-us/) and [Luau](https://luau-lang.org/). 
+Magma is a modern, reactive state management library built for [Roblox](https://developer.roblox.com/en-us/) and [Luau](https://luau-lang.org/). 
 
 #### Why Magma
 Magma is a truly reactive state management library that is very easy to migrate to. While Magma provides you the well-known state management pattern with Gems and listeners, it provides a specialized object called "ReGem" that update once any of their dependencies change.
