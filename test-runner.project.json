@@ -1,0 +1,26 @@
+{
+    "name": "magma-test-runner",
+    "tree" : {
+        "$className": "DataModel",
+        
+        "ReplicatedStorage" : {
+
+            "Magma" : {
+                "$path" : "src"
+            },
+            
+            "tests" : {
+                "$path" : "tests"
+            }
+
+        },
+
+        "ServerScriptService" : {
+
+            "tests" : {
+                "$path" : "test-runner"
+            }
+        
+        }
+    }
+}

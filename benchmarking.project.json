@@ -1,0 +1,21 @@
+{
+    "name": "magma-benchmarking",
+    "tree" : {
+        "$className": "DataModel",
+
+        "ServerStorage" : {
+            "benchs" : {
+                "$path" : "benchs"
+            },
+
+            "Magma" : {
+                "$path" : "src"
+            }
+        },
+
+        "ServerScriptService" : {
+            "$path" : "bench-runner"
+        }
+
+    }
+}
