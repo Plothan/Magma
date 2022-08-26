@@ -40,13 +40,13 @@ end) -- No destructor is provided as numbers don't require destruction
 
 To read from them, you can use:
 
-```Lua linenums="1" hl_lines="2 3"
+```Lua linenums="1"
 
 print(midHealth:get())
 ```
 
 If you were to update `health`, midHealth will update too:
-```Lua linenums="1" hl_lines="2 3"
+```Lua linenums="1"
 
 health:set(50)
 
