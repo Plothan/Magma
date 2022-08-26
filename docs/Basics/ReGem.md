@@ -29,7 +29,7 @@ Here is a list of the objects that get handled by `cleanUp`.
 2. RBXScriptConnection
 3. Any table that has a `Destroy()` method.
 
-```Lua linenums="1" hl_lines="2 3"
+```Lua linenums="1"
 
 local health = Gem(23)
 
