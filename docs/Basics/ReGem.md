@@ -50,7 +50,7 @@ If you were to update `health`, midHealth will update too:
 
 health:set(50)
 
-print(midHealth:get() - 25)
+print(midHealth:get()) -- 25
 ```
 ______
 
