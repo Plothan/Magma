@@ -41,7 +41,7 @@ return function(initalValue : any, protectType : boolean?)
     local self = setmetatable({
         type = "gem",
         
-        _protectType = protectType or false,
+        _protectType = protectType or true,
         _value = initalValue or Symbols.None,
         _dependentSet = setmetatable({}, WEAK_TABLE)
     }, META)

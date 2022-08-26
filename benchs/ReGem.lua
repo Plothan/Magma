@@ -20,7 +20,7 @@ return {
 
         prerun = function()
             return Gem(100, true)
-        end
+        end,
 
         run = function(result)
             ReGem(function(use) 

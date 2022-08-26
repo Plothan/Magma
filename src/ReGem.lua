@@ -1,4 +1,6 @@
 local Symbols = require(script.Parent.Symbols)
+local Types = require(script.Parent.types)
+
 local update = require(script.Parent.Util.update)
 local use = require(script.Parent.Util.use)
 local CLASS = {}
@@ -38,6 +40,7 @@ return function(fn, destructor)
         _dependentSet = setmetatable({}, WEAK_TABLE)
     }, META)
 
+    
     task.spawn(self._update, self ,use(self))
 
     return self

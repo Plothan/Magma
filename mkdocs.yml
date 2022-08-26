@@ -1,27 +1,33 @@
-site_name: My Docs
+site_name: Magma
+repo_url: https://github.com/Plethan/Magma
+repo_name: Plethan/Magma
 
 theme:
   name: "material"
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  features:
+    - header.autohide
 
-  palette: 
+  icon:
+    repo: fontawesome/brands/github
 
-    # Palette toggle for light mode
-    - scheme: default
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
 
-    # Palette toggle for dark mode
-    - scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
+  font:
+    text: Lato
+    code: Roboto Mono
+  palette:
+    primary: white
+    accent: 'Light Blue'
 
-    # Palette toggle for dark mode
-    - scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+nav:
+  - home: index.md
+  - Basics:
+    - Gems: Basics/Gems.md
+    - Listener: Basics/Listeners.md
+    - ReGem: Basics/ReGem.md
+
+markdown_extensions:
+ - pymdownx.highlight
+ - pymdownx.superfences
+
