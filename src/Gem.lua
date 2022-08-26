@@ -1,5 +1,6 @@
 local Symbols = require(script.Parent.Symbols)
 local update = require(script.Parent.Util.update)
+local types = require(script.Parent.types)
 
 local ERROR = "%s's type (%s) is not the same as %s's (%s)"
 
@@ -37,14 +38,14 @@ function CLASS:get() : any
     return self._value
 end
 
-return function(initalValue : any, protectType : boolean?)
+return function(initalValue : any, protectType : boolean?) : types.Gem
     local self = setmetatable({
         type = "gem",
         
         _protectType = protectType or true,
         _value = initalValue or Symbols.None,
         _dependentSet = setmetatable({}, WEAK_TABLE)
-    }, META)
+    }, META) :: types.Gem
 
     return self
 end

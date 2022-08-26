@@ -1,5 +1,5 @@
 local Symbols = require(script.Parent.Symbols)
-local Types = require(script.Parent.types)
+local types = require(script.Parent.types)
 
 local update = require(script.Parent.Util.update)
 local use = require(script.Parent.Util.use)
@@ -38,7 +38,7 @@ return function(fn, destructor)
         _value = Symbols.None,
         _dependencySet = setmetatable({}, WEAK_TABLE),
         _dependentSet = setmetatable({}, WEAK_TABLE)
-    }, META)
+    }, META) :: types.ReGem
 
     
     task.spawn(self._update, self ,use(self))
