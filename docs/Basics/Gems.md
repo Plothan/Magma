@@ -2,6 +2,7 @@
 
 Gems are objects that store singular values in them to be used by other state objects - Let's learn how to use them.
 
+**Required Code**
 ```Lua linenums="1" hl_lines="2 3"
 
 local ReplicatedStorage = game:GetStorage("ReplicatedStorage")
@@ -12,7 +13,7 @@ _____
 
 # **Usage**
 
-To create start using Gems, you should get the constructur by doing:
+To start using Gems, you should get the constructur by doing:
 
 ```Lua linenums="1"
 
