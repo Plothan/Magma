@@ -1,4 +1,4 @@
-<img src = "./gh-assets/banner-dark.svg#gh-light-mode-only"><img src = "./gh-assets/banner-white.svg">
+<img src = "./gh-assets/banner-dark.svg#gh-light-mode-only"><img src = "./gh-assets/banner-white.svg#dark-mode-only">
 
 Magma is a modern, reactive state management library built for [Roblox](https://developer.roblox.com/en-us/) and [Luau](https://luau-lang.org/). 
 
