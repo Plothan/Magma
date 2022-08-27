@@ -6,28 +6,46 @@ theme:
   name: "material"
   logo: assets/logo.svg
   favicon: assets/logo.svg
-  features:
-    - header.autohide
+  
+  palette:
+    scheme: magma-white
 
+
+
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.sections
   icon:
     repo: fontawesome/brands/github
-
-
   font:
-    text: Lato
-    code: Roboto Mono
-  palette:
-    primary: white
-    accent: 'Light Blue'
+    text: Inter
+    code: JetBrains Mono
+  
+extra_css:
+   - assets/extra.css
+
 
 nav:
-  - home: index.md
-  - Basics:
-    - Gems: Basics/Gems.md
-    - Listener: Basics/Listeners.md
-    - ReGem: Basics/ReGem.md
+  - Home: index.md
+  - Tutorials:
+    - Get Started: Tutorial/index.md
+    - Fundamentals:
+      - Reactive Programming: Tutorial/Fundamentals/reactive.md
+      - Why Objects: Tutorial/Fundamentals/objects.md
+    - Basics:
+      - Gems: Tutorial/Basics/Gems.md
+      - Listener: Tutorial/Basics/Listeners.md
+      - ReGem: Tutorial/Basics/ReGem.md
+
 
 markdown_extensions:
- - pymdownx.highlight
- - pymdownx.superfences
-
+  - pymdownx.highlight
+  - footnotes
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
