@@ -12,7 +12,7 @@ In our systems, we usually need to listen to changes coming from state objects -
     ```
 ______
 
-## &&Listening to Changes**
+## **Listening to Changes**
 
 To listen to changes coming from other state objects, we use Magma's `listener` object.
 
