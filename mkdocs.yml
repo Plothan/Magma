@@ -38,7 +38,6 @@ nav:
       - Observing State: Tutorial/Basics/Listeners.md
       - Conputing: Tutorial/Basics/ReGem.md
 
-
 markdown_extensions:
   - pymdownx.highlight
   - footnotes
