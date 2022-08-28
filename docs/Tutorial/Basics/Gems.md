@@ -87,4 +87,4 @@ print(value:get()) -- 50
 If we were to set it to something else that has a different type than the old value's, it will error.
 
 
-Keep in mind, that not all `value:set()` actually work - if you were to set the `value` to the same value, nothing will occur.
+Keep in mind, that not all `value:set()` calls actually work - if you were to set the `value` to the same value, nothing will occur.
