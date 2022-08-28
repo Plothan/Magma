@@ -1,6 +1,6 @@
 local benchtools = require(script.Parent.benchtools)
 
-local benchs = game:GetService("ServerStorage").benchs:GetDescendants()
+local benchs = game:GetService("ReplicatedStorage").benchs:GetDescendants()
 
 local results = {}
 

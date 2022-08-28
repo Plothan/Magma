@@ -1,6 +1,6 @@
-local ServerStorage = game:GetService("ServerStorage")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Magma = require(ServerStorage.Magma)
+local Magma = require(ReplicatedStorage.Magma)
 local Gem = Magma.Gem
 local Listener = Magma.Listener
 local ReGem = Magma.ReGem
