@@ -49,3 +49,7 @@ healthListener:onChange(function(oldValue, newValue)
     print(oldValue, newValue)
 end)
 ```
+
+Additionally, Magma offers a syntatic sugar for `onChange(0)` method. It first calls your handler with `(nil, currentValue)`, and then calls `...:onChange` internally. 
+
+Moreover, sometimes we need to disconnect these handlers.  We can disconnect the handlers by using the `Disconnect` function returned by both `OnChange` and `OnBind`.
