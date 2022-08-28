@@ -1,3 +1,4 @@
+
 [data-md-color-scheme="magma-white"] {
 
   --md-default-fg-color:               rgb(0, 0, 0);
@@ -20,3 +21,4 @@
   --md-footer-bg-color:                val(--md-default-bg-color);
   --md-footer-bg-color--dark:          val(--md-default-bg-color);
 }
+

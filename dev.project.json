@@ -5,6 +5,10 @@
         
         "ReplicatedStorage" : {
 
+            "benchs" : {
+                "$path" : "benchs"
+            },
+
             "Magma" : {
                 "$path" : "src"
             },
@@ -19,6 +23,10 @@
 
             "tests" : {
                 "$path" : "test-runner"
+            },
+            
+            "bencher" : {
+                "$path" : "bench-runner"
             }
         
         }

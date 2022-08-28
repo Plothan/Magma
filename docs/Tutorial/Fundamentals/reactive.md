@@ -1,7 +1,7 @@
 # **Reactive Programming**
 Magma is built on the reactive programming principles, as such, you need to know what exactly is reactive programming, so that you can leverage Magma's features to it's best. 
 _______
-# **It's all about Events**
+## **It's all about Events**
 In Reactive Programming, you manage data with events, an event is simply enough, a notification that implies ***something has changed*** from an object to another, no matter their type.
 
 Consider the following pseudocode:
@@ -32,7 +32,7 @@ flowchart LR
 ```
 ________
 
-# **Worry about data, not updates**
+## **Worry about data, not updates**
 The beauty about reactive programming, especially when used in Magma, is that you shouldn't worry about updating your variables when their dependencies update. consider the following lua code:
 
 ```Lua

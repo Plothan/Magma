@@ -34,9 +34,9 @@ nav:
       - Reactive Programming: Tutorial/Fundamentals/reactive.md
       - Why Objects: Tutorial/Fundamentals/objects.md
     - Basics:
-      - Gems: Tutorial/Basics/Gems.md
-      - Listener: Tutorial/Basics/Listeners.md
-      - ReGem: Tutorial/Basics/ReGem.md
+      - Storing State: Tutorial/Basics/Gems.md
+      - Observing State: Tutorial/Basics/Listeners.md
+      - Conputing: Tutorial/Basics/ReGem.md
 
 
 markdown_extensions:
