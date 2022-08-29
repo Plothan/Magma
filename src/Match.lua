@@ -11,7 +11,13 @@ function CLASS:_update(_, newValue)
 
     local conditionTable = self._conditionTable
     local oldValue = self._value
-    local chosenCondition = conditionTable[newValue] or conditionTable["default"]
+    local chosenCondition = conditionTable[self._dependency:get()] or conditionTable["default"]
+
+    for dependency in self._dependencySet do
+        dependency._dependentSet[self] = nil
+    end
+
+    table.clear(self._dependencySet)
 
     self._value = Symbols.Pending 
     self._value = chosenCondition(use(self))

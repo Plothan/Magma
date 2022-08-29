@@ -53,4 +53,25 @@ return function()
         expect(matchObject:get()).to.equal(secondaryGem:get() * 3)
 
     end)
+
+    it("should change once any of it's current case dependencies change", function()
+        local input = Gem(100)
+
+        local _dependency = Gem(10)
+
+        local matchObject = Match(input, {
+            [100] = function(use)
+                return use(_dependency) * 100
+            end,
+            ["default"] = function()
+                return input:get()
+            end,
+        })
+
+        expect(matchObject:get()).to.equal(_dependency:get() * 100)
+
+        _dependency:set(30)
+        expect(matchObject:get()).to.equal(_dependency:get() * 100)
+
+    end)
 end
