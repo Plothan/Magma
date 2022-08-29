@@ -1,59 +1,88 @@
-# **ReGems**
-ReGems are state objects that we use to derive new data from other ones efficiently - Let's learn how to use them!
+# **Computing State**
+We often need derived values in our systems and UI, let's learn how Magma's object ReGem provides us a simple way ot acheiving this.
 
-**Required Code**
-```Lua linenums="1" hl_lines="2 4"
+??? "Required Code"
+    ```Lua
 
-local ReplicatedStorage = game:GetStorage("ReplicatedStorage")
-local Magma = require(ReplicatedStorage.Magma)
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local Magma = require(ReplicatedStorage.Magma)
 
-local Gem = Magma.Gem
+    local Gem = Magma.Gem
+    ```
+___
+
+## **The Computation Problem**
+
+Usually in our code, we often need "dervied" values for our systems/UIs. For example, in a simple leaderstats, we often have:
+
+* Kills - increases everytime you kill somebody
+* Cash - increases everytime kills increase by 200
+
+If we were to implement this in Magma with Gems and Listeners, we would do:
+
+```Lua
+
+local Kills = Gem(0)
+local KillsListener = Listener(Kills)
+
+local Cash = Gem(0)
+KillsListener:onBind(function(_, newValue)
+    Cash:set(newValue * 200)
+end)
 ```
-____
 
-# **Usage**
+While this *work*, this has various issues, including:
 
-To use ReGems, you should get the constructor first:
+1. If we were to introduce more dependencies to `Cash`, it would be tedious to manage.
+2. The relation between Kills and Cash isn't really clear at a first glance.
+3. We are creating two objects, one for saving the latest value, and the other for listening to `Kills`
 
-```Lua linenums="1" hl_lines="2 3"
+## **Solution: ReGems**
+To solve this, Magma introduces a special kind of state objects - `ReGems`. Instead of storing a fixed value, they run a computation whenever any of their dependencies change.
+
+To use a ReGem, you first need to import it's constructor:
+```Lua
 
 local ReGem = Magma.ReGem
 ```
 
-To create a regem, you should call the constructor with the prcoesser function that returns a value that accepts a `use` utility, you will use this function to let ReGem know what objects you are using. 
+To create a new ReGem, we call it's constrcutor with the computation as an function that will receive a utility function called `use` as an argument - it is used to tell ReGem what objects you are using.
 
-Secondly, you can provide a destructor function in the second argument for objects that require manual destruction and/or have a `Destroy()` method. Additionally, you can use `Magma.cleanUp` utility as the destructor function. 
 
-Here is a list of the objects that get handled by `cleanUp`.
-1. Roblox Instances
-2. RBXScriptConnection
-3. Any table that has a `Destroy()` method.
 
-```Lua linenums="1"
+```Lua
 
-local health = Gem(23)
+local Players = Gem(100)
 
-local midHealth = ReGem(function(use) 
-    return use(health) / 2
-end) -- No destructor is provided as numbers don't require destruction
+local doublePlayers = ReGem(function(use)
+    return use(Players) * 2
+end)
 ```
 
-To read from them, you can use:
+Additionally, you can pass another function as the `destructor` which will be responsible for cleaning up old values that need to be.
 
-```Lua linenums="1"
+```Lua
 
-print(midHealth:get())
+local doublePlayers = ReGem(function(use)
+    return use(Players) * 2
+end, function(oldValue)
+-- do nothing
+end)
 ```
 
-If you were to update `health`, midHealth will update too:
-```Lua linenums="1"
+However, to reduce repeating code, you can use the already built-in `Magma.cleanUp` utility that will clean up the following:
 
-health:set(50)
+* Instances
+* RBXScriptConnections
+* Tables with :Destroy()
 
-print(midHealth:get()) -- 25
+Or, if you don't want to clean up the oldValue entirely *(whether it doesn't need to be or it isn't supposed to manage it)*, you can just pass nothing
+
+
+Now, when Players change, doublePlayers will also change:
+
+```Lua
+
+Players:set(20)
+print(doublePlayers:get()) -- 40
 ```
-______
-
-# **Why ReGems?**
-
-You may ask why can't I just use `listener:onBind`? While listeners do work, it is a nightmare when you use more than 1 dependency in a dependent.
