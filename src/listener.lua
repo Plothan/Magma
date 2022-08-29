@@ -37,5 +37,6 @@ return function(object : types.Gem | types.ReGem) : types.Listener
         _dependency = object
     }, META) :: types.Listener
 
+    object._dependentSet[self] = true
     return self
 end

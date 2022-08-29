@@ -9,12 +9,12 @@ return function()
         local didFire = false
         listener(value):onChange(function(oldValue, newValue)
             didFire = true
-        
-            expect(didFire).to.equal(true)
-
         end)
 
         value:set(200)
+        task.wait()
+        expect(didFire).to.equal(true)
+
     end)
 
     it("should fire in response to a regem object", function() 
@@ -28,10 +28,12 @@ return function()
         listener(revalue):onChange(function()
             didfire = true
 
-            expect(didfire).to.equal(true)
         end)
 
         value:set(50)
+        task.wait()
+        expect(didfire).to.equal(true)
+
     end)
 
     it("should provide accurate paramters", function()
