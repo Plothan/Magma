@@ -6,7 +6,7 @@ ____________________
 ## **What do you need to know?**
 * This tutorial assumes you are comfortable with Roblox and the luau scripting language
     * These tutorials aren't an introduction to scripting! If you'd like to learn, check out the Roblox DevHub.
-
+* Being comfortable with Reactive programming will help.
 
 ________________
 ## **Installing Magma**

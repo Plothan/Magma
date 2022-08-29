@@ -70,13 +70,13 @@ end, function(oldValue)
 end)
 ```
 
-However, to reduce repeating code, you can use the already built-in `Magma.cleanUp` utility that will clean up the following:
+However, to avoid repeating code, you can use the already built-in `Magma.cleanUp` utility that will clean up the following:
 
 * Instances
 * RBXScriptConnections
 * Tables with :Destroy()
 
-Or, if you don't want to clean up the oldValue entirely *(whether it doesn't need to be or it isn't supposed to manage it)*, you can just pass nothing
+Or, if you don't want to clean up the oldValue entirely *(whether it doesn't need to be or it isn't supposed to manage it)*, you can just pass nothing or `Magma.doNothing`.
 
 
 Now, when Players change, doublePlayers will also change:

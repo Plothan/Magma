@@ -2,34 +2,43 @@
 Magma is built on the reactive programming principles, as such, you need to know what exactly is reactive programming, so that you can leverage Magma's features to it's best. 
 _______
 ## **It's all about Events**
-In Reactive Programming, you manage data with events, an event is simply enough, a notification that implies ***something has changed*** from an object to another, no matter their type.
+In Reactive Programming, we manage data using "events", or more simply enough "notifications" from an object to another depending on the context.
 
-Consider the following pseudocode:
+If we were to build a simple kills-cash leaderstats, we would first have a variable called `kills` and another called `cash`. 
+
+Now, no matter how you want to calculate, either by a static value *(kills * 200)* or a dynamic value *(kills * random)*, you would always need to bind the cash to the kills variable. With Magma *(aka, reactive programming)*, we would use the `ReGem` and the `Gems` objects, and it would look like this:
 
 ```Lua
 
-object_1 = object(23)
-object_2 = object((object_1 / 2))
-
-object_1:set(4) -- -> {
-    this sends an notification to object_2 saying that it changed
-}
-
-print(object_2:get()) -- 2 
+local kills = Gem(1)
+local cash = ReGem(function(use)
+    return use(kills) * 200
+end)
 ```
 
-If we were to translate this to a diagram, it would look like:
+Now everything is clear at the first glance, and quite frankly, we have now a variable that is synced to to another!
+
+Now, when we change `kills`, it will update `cash`, like the following:
+
+```lua
+
+kills:set(20)
+print(kills:get()) -- 20,000
+```
+Internally, when you use the `set()` method, `kills` will send a notification to `cash`, at which `cash` responds by upating itself, which we can express in a diagram like this:
 
 ```mermaid
 
 flowchart LR
-    object_constructor--> object_1
-
-    object_constructor-->object_2
-
     object_1--> id1{{UPDATE}} --> object_2
 
 ```
+
+??? Caution "Real Behavior"
+    The actual behavior in Magma is that for example `kills` doesn't send "notification", but rather directly updates them instead. This difference is minor and doesn't change how you would code with Magma.
+
+
+
 ________
 
 ## **Worry about data, not updates**

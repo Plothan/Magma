@@ -37,6 +37,8 @@ nav:
       - Storing State: Tutorial/Basics/Gems.md
       - Observing State: Tutorial/Basics/Listeners.md
       - Conputing: Tutorial/Basics/ReGem.md
+    - Further Basics:
+      - State Matching: Tutorial/Further/Match.md
 
 markdown_extensions:
   - pymdownx.highlight
